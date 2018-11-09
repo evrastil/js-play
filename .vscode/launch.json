@@ -15,6 +15,12 @@
             "request": "launch",
             "name": "max-len",
             "program": "${workspaceFolder}/max-length.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "kthtolast",
+            "program": "${workspaceFolder}/kthtolast.js"
         }
     ]
 }
