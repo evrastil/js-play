@@ -25,8 +25,8 @@ function kthToLastNode(pos, node) {
     }
     const top = count - pos
     let res = node
-    for (let i = 0; i<top;i++){
-        res = res.next        
+    for (let i = 0; i < top; i++) {
+        res = res.next
     }
     console.log(res.value)
 
