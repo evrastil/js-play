@@ -21,7 +21,7 @@
             "request": "launch",
             "name": "kthtolast",
             "program": "${workspaceFolder}/kthtolast.js"
-        }
+        },
         {
             "type": "node",
             "request": "launch",
