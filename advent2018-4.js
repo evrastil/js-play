@@ -1,6 +1,13 @@
 const puzzle4 = (input) => {
     const arr = input.split('\n').map(piece => piece)
-
+    arr.reduce((diff, id, index, restOfArr) => {
+        const idLength = id.length
+        let idx = 0
+        while (idLength > idx) {
+            let diffSize = 0
+            
+        }
+    }, '')
 }
 
 puzzle4('bpacnmelhhzpygfsjoxtvkwuor\n' +

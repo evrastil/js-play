@@ -27,6 +27,12 @@
             "request": "launch",
             "name": "shuffle",
             "program": "${workspaceFolder}/inplaceshuffle.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "knapsack",
+            "program": "${workspaceFolder}/knapsack.js"
         }
     ]
 }
