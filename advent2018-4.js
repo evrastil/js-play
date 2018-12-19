@@ -1,13 +1,37 @@
 const puzzle4 = (input) => {
     const arr = input.split('\n').map(piece => piece)
-    arr.reduce((diff, id, index, restOfArr) => {
-        const idLength = id.length
-        let idx = 0
-        while (idLength > idx) {
+    const diffs = []
+    arr.forEach((id, index, restOfArr) => {
+        let restArrIdx = index + 1
+        while (arr.length > restArrIdx) {
+            const idLength = id.length
+            let letterPos = 0
             let diffSize = 0
-            
+            const restOfArrId = restOfArr[restArrIdx]
+            while (idLength > letterPos && diffSize < 2) {
+                const currIdChar = id.charAt(letterPos)
+                const restOfArrIdChar = restOfArrId.charAt(letterPos)
+                if (currIdChar !== restOfArrIdChar) {
+                    diffSize++
+                }
+                letterPos++
+            }
+            if (diffSize === 1) {
+                diffs.push(id)
+                diffs.push(restOfArrId)
+            }
+            restArrIdx++
         }
-    }, '')
+    }, [])
+    console.log(diffs)
+    let res = ''
+    for (let i = 0; i < diffs[0].length; i++) {
+        if (diffs[0].charAt(i) === diffs[1].charAt(i)) {
+            res = res + diffs[0].charAt(i)
+        }
+    }
+    console.log(res)
+    return res
 }
 
 puzzle4('bpacnmelhhzpygfsjoxtvkwuor\n' +
