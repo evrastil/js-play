@@ -17,11 +17,39 @@ const puzzle6 = (input) => {
             for (let j = 0; j < piece.ylen; j++) {
                 let yval = piece.posy + j
                 let xval = piece.posx + i
-                // let currVal = fabric[xval][yval]
-                fabric[xval][yval] = piece.idf
+                let currVal = fabric[xval][yval]
+                if (currVal !== 0) {
+                    fabric[xval][yval] = 2
+                } else {
+                    fabric[xval][yval] = 1
+                }
             }
         }
     })
+
+    const result = []
+    arr.forEach(piece => {
+        const pieceCount = piece.xlen * piece.ylen
+        let realCount = 0
+        for (let i = 0; i < piece.xlen; i++) {
+            for (let j = 0; j < piece.ylen; j++) {
+                let yval = piece.posy + j
+                let xval = piece.posx + i
+                let currVal = fabric[xval][yval]
+                if(currVal === 1){
+                    realCount += 1
+                }
+            }
+        }
+
+        if(pieceCount === realCount){
+            result.push(piece.idf)
+        }
+    })
+
+    console.log(result)
+
+    return result
 
 
 }
