@@ -1,8 +1,8 @@
-const puzzle5 = (input) => {
+const puzzle6 = (input) => {
     let x = 0, y = 0
     const arr = input.split('\n').map(piece => {
-        [num, posx, posy, xlen, ylen] = piece.match(/\d+/g)
-        const f = { posx: parseInt(posx), posy: parseInt(posy), xlen: parseInt(xlen), ylen: parseInt(ylen) }
+        [idf, posx, posy, xlen, ylen] = piece.match(/\d+/g)
+        const f = { idf, posx: parseInt(posx), posy: parseInt(posy), xlen: parseInt(xlen), ylen: parseInt(ylen) }
         if (x < (f.posx + f.xlen)) {
             x = f.posx + f.xlen
         }
@@ -17,26 +17,16 @@ const puzzle5 = (input) => {
             for (let j = 0; j < piece.ylen; j++) {
                 let yval = piece.posy + j
                 let xval = piece.posx + i
-                let currVal = fabric[xval][yval]
-                if (currVal !== 0) {
-                    fabric[xval][yval] = 2
-                } else {
-                    fabric[xval][yval] = 1
-                }
+                // let currVal = fabric[xval][yval]
+                fabric[xval][yval] = piece.idf
             }
         }
     })
-    let result = 0
-    fabric.forEach(row => row.forEach(item => {
-        if (item === 2) {
-            result += 1
-        }
-    }))
-    console.log(result)
+
 
 }
 
-puzzle5('#1 @ 509,796: 18x15\n' +
+puzzle6('#1 @ 509,796: 18x15\n' +
     '#2 @ 724,606: 23x15\n' +
     '#3 @ 797,105: 10x13\n' +
     '#4 @ 925,483: 18x19\n' +
